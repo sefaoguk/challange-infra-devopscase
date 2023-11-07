@@ -1,0 +1,223 @@
+
+.container
+{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+    height: 700px;
+    flex-wrap: wrap;
+}
+ul
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    background-color: rgb(255, 255, 239);
+    width: 275px;
+    border-radius: 10px;
+    padding: 20px 0 0 0;
+    margin: 20px;
+    box-shadow: 0px 2px 2px rgb(0,0 ,0,0.9);
+    transition: 0.5s;
+    cursor: pointer;
+}
+.bookTitle
+{
+    font-weight: bold;
+}
+ul:hover
+{
+    border:none;
+    box-shadow: 1px 1px 10px  rgb(0,0 ,0,0.6);
+}
+li
+{
+    list-style-type:none;
+    margin: 10px;
+    width: 250px;
+
+}
+
+.book
+{
+    height: 600px;
+}
+
+
+.bookHeader
+{
+    height: 230px;
+}
+.price 
+{
+    font-family:sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    color: white;
+    border-radius: 5px;
+    background-color: rgb(231, 133, 62);
+}
+.newprice
+{
+    font-family: monospace;
+    letter-spacing: -2px;
+
+}
+.oldprice
+{
+    font-family:monospace;
+    align-self: flex-start;
+   text-decoration:line-through rgb(255, 61, 61) ; 
+color:rgb(241, 0, 0);
+font-size: 18px;
+}
+.name
+{
+    font-family:sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+}
+.informationTitle
+{
+    font-weight: bold;
+    font-family:sans-serif;
+}
+.bookImg
+{
+    display: flex;
+    justify-content: center;
+}
+.book
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.img
+{
+    height: 200px;
+    width: 150px;
+    border: 3px solid #333;
+}
+.btn
+{
+    background-color:rgb(163, 88, 35) ;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.btn:hover
+{
+    padding: 8px;
+    background-color:saddlebrown;
+}
+.btn:focus
+{
+    outline: 0;
+}
+.navbar
+{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 70px;
+    background-color: white;
+    box-shadow: 1px 1px 20px rgba(51, 39, 39, 0.6); 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.navbarLeft a{
+    text-decoration: none;
+    background-color: rgb(2, 2, 2);
+    width: 18%;
+    padding: 25.6px;
+    color: white;
+    
+}
+.title
+{
+    margin-top: 30px;
+}
+.navbarLeft a:hover,.navbarRight a:hover
+{
+    background-color: rgb(228, 76, 50);
+}
+.navbarLeft
+{
+    margin-left: 30px;
+    align-self: center;
+}
+.navbarMiddle input
+{
+ height: 40px;
+ border-radius: 10px;
+ 
+}
+.navbarRight
+{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 30px;
+    
+}
+.navbarRight a{
+ 
+    width: 23%; 
+    padding: 25.6px;
+    white-space: nowrap;
+    text-decoration: none;
+    color:white;
+    background-color: black;
+}
+h2
+{
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.button
+{
+    display: flex;
+    justify-content: center;
+}
+.dialogButton
+{
+    display: flex;
+    justify-content: space-around;
+}
+.dialogButton button
+{
+    padding: 15px;
+    width: 200px;
+    cursor: pointer;
+    background-color: tomato;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.btnDelete
+{
+
+    
+    background-color: rgb(161, 3, 3);
+    border:none;
+    color: white;
+    padding: 10px;
+    width: 80%;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.btnDelete:hover
+{
+    font-size: 16px;
+    width: 100%;
+   
+}

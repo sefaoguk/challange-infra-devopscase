@@ -1,0 +1,26 @@
+@media (max-width: 991px) {
+			.headerTop{
+				padding: 5px 0;
+				position: absolute;
+				right: 0;
+				top: 0;
+				z-index: 9;
+			}
+			.headerNav{
+				margin-top: 15px;
+			}
+		}
+.newsTwitter .tTweets .tweetCard img {
+    /* -webkit-border-radius: 8px; */
+    -moz-border-radius: 8px;
+    /* border-radius: 8px; */
+    margin-top: 0px;
+    width: 20px;
+    padding-left: 3px;
+	}
+    .invisible {
+		display:none;
+	}
+	 .u-hidden {
+		display:none;
+	}

@@ -1,0 +1,17 @@
+{
+	"ulid": "01GXDAWG205WZEP8ZBFX6YWVAZ",
+	"minTime": 1680842781878,
+	"maxTime": 1680847200000,
+	"stats": {
+		"numSamples": 3010,
+		"numSeries": 25,
+		"numChunks": 25
+	},
+	"compaction": {
+		"level": 1,
+		"sources": [
+			"01GXDAWG205WZEP8ZBFX6YWVAZ"
+		]
+	},
+	"version": 1
+}

@@ -1,0 +1,63 @@
+# prometheus global config
+global:
+  scrape_interval:     15s
+  evaluation_interval: 15s
+  # scrape_timeout is set to the global default (10s).
+
+  external_labels:
+    monitor: codelab
+    environment: Production
+    service: DevopsCase
+    region: EU
+    dc: eu-west-1
+
+alerting:
+  alertmanagers:
+  - static_configs:
+    - targets:
+      - alertmanager:9093
+
+rule_files:
+  - "rules.yml"
+
+scrape_configs:
+  # metrics_path defaults to '/metrics'
+  # scheme defaults to 'http'.
+
+  - job_name: Angular
+    metrics_path: '/'
+    scrape_interval: 5s
+    scrape_timeout: 2s
+    honor_labels: true
+    static_configs:
+      - targets: ['angular.local']
+
+
+  - job_name: Wordpress
+    metrics_path: '/'
+    scrape_interval: 5s
+    scrape_timeout: 2s
+    honor_labels: true
+    static_configs:
+      - targets: ['wordpress.local']
+
+
+  - job_name: PHP API
+    metrics_path: '/'
+    scrape_interval: 5s
+    scrape_timeout: 2s
+    honor_labels: true
+    static_configs:
+      - targets: ['phpapi.local']
+
+
+  - job_name: HTML
+    metrics_path: '/'
+    static_configs:
+    - targets: ['html.local']
+
+
+  - job_name: PHP Symfony
+    metrics_path: '/'
+    static_configs:
+    - targets: ['symfony.local']

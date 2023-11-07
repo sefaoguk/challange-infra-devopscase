@@ -1,0 +1,290 @@
+
+.navbar
+{  
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 70px;
+    background-color:#000000;
+    box-shadow: 1px 1px 10px rgba(0,0,0,0.3);
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(238, 237, 237);
+    
+}
+.navbarMiddle
+{
+    display: flex;
+    width: 300px;
+   justify-content: flex-end;
+}
+.navbarMiddle a
+{
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    font-size: 25px;
+    letter-spacing: 10px;
+}
+.navbarRight
+{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 30px;
+}
+.navbarRight a
+{
+    width: 120px;
+    text-align: center;
+    padding:22px;
+    white-space: nowrap;
+    text-decoration: none;
+    color:white;
+   
+}
+.container
+{
+    height: auto;
+    display: flex;
+    justify-content: space-between; 
+   
+}
+.containerRight{
+    display: flex;
+    justify-content:center;
+    margin-top: 70px;
+    width: 100%;
+
+}
+.containerLeft
+{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: 1px 1px 10px rgba(0,0,0,0.3);
+    width: 15%;
+
+}
+.copyright
+{
+    padding: 7px;
+    text-align: center;
+}
+.userInformation
+{
+    margin-bottom: 250px;
+}
+.user
+{
+    margin-top: 70px;
+    padding:20px;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(168, 168, 168);
+    
+}
+.userIcon
+{
+
+    width: 150px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: white;
+
+}
+.userIcon img
+{  
+    width: 100px;
+}
+.userInformationGroup
+{   display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+}
+.userInformationItem
+{
+    list-style: none;
+    color:rgb(95, 95, 95);
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 18px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+.userTitle
+{
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+}
+.bookTitle
+{
+    text-align: center;
+    height: 55px;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+}
+
+.bookAddedGroup
+{
+
+    padding: 80px 150px 150px 150px;
+
+}
+.bookItem{
+    list-style: none;
+}
+small
+{
+    color: rgb(177, 2, 2);
+}
+.bookAddedItem
+{
+ width: 100%;  
+ list-style: none; 
+}
+.bookAddedItem input
+{
+    height: 40px;
+    border:none;
+    box-shadow: 5px 7px 0px rgba(172, 171, 171, 0.4);
+    margin-bottom: 15px;
+}
+.bookButtons
+{
+    margin-top:10px;
+    display: flex; 
+    justify-content: flex-end;
+}
+textarea
+{
+    height: 150px;
+    border:none;
+    box-shadow: 5px 5px 0px rgba(172, 171, 171, 0.4);
+}
+input:focus , textarea:focus
+{
+outline: none;
+}
+.btn
+{
+  padding: 10px;
+  color: white;
+  background-color: rgb(7, 121, 109);
+  border:none;
+border-radius: 5px;
+cursor: pointer;
+width: 15%;
+}
+.oldprice
+{
+text-decoration:line-through;
+margin-right: 20px;
+}
+
+@media all and (max-width:1000px)
+{
+    .containerLeft
+    {
+        display: none;
+    }
+}
+/* ******** FOOTER ********** */
+
+.footer
+{
+    height: 250px;
+    background-color: rgb(26, 25, 25);
+    color: white;
+    text-align: center;
+}
+footer
+{
+    height: 220px;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+   
+  
+    color: white;
+}
+.footerLeft
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 39%;
+
+}
+.footerTitle
+{
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 10px;
+}
+.footerMiddle
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 39%;
+}
+.footerMiddleLeft
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 200px;
+    width: 50px;
+}
+.footerMiddleRight
+{
+    margin-top: 10px;
+    display: flex;
+    text-align: start;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 200px;
+    height: 160px;
+}
+.footerMiddleLeft svg{
+   width: 30px;
+}
+.footerRight
+{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    font-weight: bold;
+    font-size: 17px;
+    width: 39%;
+    padding: 50px;
+
+}
+.about
+{
+    font-weight: normal;
+    text-align: justify;
+    font-size: 13px;
+}
+.footerLine
+{
+    display: flex;
+    align-self: center;
+    width: 1px;
+    height: 180px;
+    background-color: rgb(189, 187, 187);
+}
+

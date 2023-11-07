@@ -1,0 +1,41 @@
+<div class="container">
+    <h2>Devam etmek istiyor musunuz ?</h2>
+    <ul  class="book">
+       
+        <div class="bookHeader">
+            <li class="bookImg bookItem">
+                <img class="img" src={{data.img}}>
+            </li>
+        </div>
+        <div class="bookBody">
+
+            <li class="name  bookItem">
+                <span class="bookTitle"></span>{{data.name}}
+            </li>
+            <li class="author  bookItem">
+                <span class="bookTitle"> Yazarı : </span>{{data.author}}
+            </li>
+           
+            <li class="printingDate  bookItem">
+                <span class="bookTitle"> Yayın Yılı : </span>{{data.printingDate}}
+            </li>
+            <li class="publisherHouse  bookItem">
+                <span class="bookTitle"> Yayın Evi :</span> {{data.publisherHouse}}
+            </li>
+            <li class="description  bookItem">
+                <span class="bookTitle"> Hakkında : </span>{{data.description}}
+            </li>
+            <li class="price  bookItem">
+                <span class="oldprice">{{data.oldprice}},00₺ </span> <span class="newprice">
+                    {{data.newprice}},00₺</span>
+            </li>
+          
+        </div>
+    </ul>
+    <div class="dialogButton">
+        <button class="btnNo" (click)="btnNo()"> Hayır</button>
+        <button class="btnYes" (keyup.enter)="btnYes()" (click)="btnYes()" > Evet</button>
+    
+    </div>
+   
+</div>

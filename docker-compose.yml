@@ -1,0 +1,157 @@
+version: '3'
+services:
+
+  devopscase_prometheus:
+    container_name: devopscase_prometheus
+    image: prom/prometheus
+    restart: always
+    volumes:
+      - ./src/prometheus/config:/prometheus
+      - ./src/prometheus/data/prometheus:/data
+    command:
+      - '--config.file=/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/data'
+    ports:
+      - 9090:9090
+    networks:
+      custom:
+
+  devopscase_grafana:
+    container_name: devopscase_grafana
+    image: grafana/grafana-enterprise:8.2.0
+    ports:
+      - 3000:3000
+    networks:
+      custom:
+
+  devopscase_mysql_masterdb:
+    image: mysql:8.0
+    container_name: devopscase_mysql_masterdb
+    restart: always
+    command: '--default-authentication-plugin=mysql_native_password'
+    environment:
+      - MYSQL_ROOT_PASSWORD=testrootpass
+      - MYSQL_DATABASE=test
+      - MYSQL_USER=testuser
+      - MYSQL_PASSWORD=testpass
+    volumes:
+      - ./src/mysql/masterdb/my.cnf:/etc/mysql/my.cnf
+      - ./src/mysql/masterdb/data:/var/lib/mysql
+      - ./src/mysql/masterdb/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      custom:
+
+  devopscase_mysql_slavedb:
+    image: mysql:8.0
+    container_name: devopscase_mysql_slavedb
+    restart: always
+    command: '--default-authentication-plugin=mysql_native_password'
+    environment:
+      - MYSQL_ROOT_PASSWORD=testrootpass
+      - MYSQL_DATABASE=test
+      - MYSQL_USER=testuser
+      - MYSQL_PASSWORD=testpass
+    volumes:
+      - ./src/mysql/slavedb/my.cnf:/etc/mysql/my.cnf
+      - ./src/mysql/slavedb/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      custom:
+
+  devopscase_haproxy:
+    image: haproxy:2.4-alpine
+    container_name: devopscase_haproxy
+    restart: always
+    volumes:
+      - ./src/haproxy/errors:/usr/local/etc/haproxy/errors
+      - ./src/haproxy:/usr/local/etc/haproxy/
+      - ./src/haproxy/ssl/case:/etc/ssl/certs/case
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      custom:
+
+  devopscase_nginx:
+    container_name: devopscase_nginx
+    image: nginx:alpine
+    restart: always
+    volumes:
+      - ./src/nginx/conf.d:/etc/nginx/conf.d
+      - ./src/angular:/var/www/html/angular
+      - ./src/wordpress:/var/www/html/wordpress
+      - ./src/symfony:/var/www/html/demo
+      - ./src/html:/var/www/html/html
+    networks:
+      custom:
+
+  devopscase_nginx_2:
+    container_name: devopscase_nginx_2
+    image: nginx:alpine
+    restart: always
+    volumes:
+      - ./src/nginx/conf.d:/etc/nginx/conf.d
+      - ./src/angular:/var/www/html/angular
+      - ./src/wordpress:/var/www/html/wordpress
+      - ./src/symfony:/var/www/html/demo
+      - ./src/html:/var/www/html/html
+    networks:
+      custom:
+
+  devopscase_api:
+    build: ./src/php_api
+    container_name: devopscase_api
+    environment:
+      - SQLITE_PATH=/var/www/html/api_php/storage/api.db
+    volumes:
+      - ./src/php_api:/var/www/html/php_api
+    networks:
+      custom:
+
+  devopscase_wordpress:
+    container_name: devopscase_wordpress
+    build: ./src/wordpress
+    restart: always
+    environment:
+      - WORDPRESS_DB_HOST=devopscase_mysql_masterdb:3306
+      - WORDPRESS_DB_USER=testuser
+      - WORDPRESS_DB_PASSWORD=testpass
+      - WORDPRESS_DB_NAME=test
+    volumes:
+      - ./src/wordpress:/var/www/html/wordpress
+    networks:
+      custom:
+
+  devopscase_php:
+    container_name: devopscase_php
+    restart: always
+    hostname: devopscase_php
+    build: ./src/symfony
+    volumes:
+      - ./src/symfony:/var/www/html/demo
+    networks:
+      custom:
+
+  devopscase_angular:
+    container_name: devopscase_angular
+    restart: always
+    build: ./src/angular
+    volumes:
+      - ./src/angular:/app
+    networks:
+      custom:
+
+  devopscase_html:
+    container_name: devopscase_html
+    restart: always
+    build: ./src/html
+    volumes:
+      - ./src/html:/var/www/html/html
+    networks:
+      custom:
+
+networks:
+  custom:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.22.0.0/24

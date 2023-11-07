@@ -1,0 +1,229 @@
+<div class="navbar">
+    <div class="navbarLeft">
+       
+        
+    </div>
+    <div class="navbarMiddle">
+        <a routerLink="/home" href="" class="title">PLANETRAVEL </a>
+        <!-- <input type="text" [(ngModel)]="searchValue" (keyup)="applyFilter($event.target.value)" matInput placeholder="Filter"> -->
+    </div>
+    <div class="navbarRight">
+        <a routerLink="/home" href="">Home</a>
+        <a routerLink='/add' href="">Add Book</a>
+    </div>
+</div>
+<div class="container">
+   <!-- <div class="addPopUp">
+
+        <div class="bookPreview">
+            <ul  *ngFor="let book of books" class="book">
+                <div class="bookHeader">
+                    <li class="bookImg bookItem">
+                        <img class="img" src={{book.img}}>
+                    </li>
+                </div>
+        
+                <div class="bookBody">
+        
+                    <li class="author  bookItem">
+                        <span> ID : {{book.id}}</span>
+                    </li>
+                    <li class="name  bookItem">
+                        <span>Kitap İsmi : {{book.name}}</span>
+                    </li>
+                    <li class="author  bookItem">
+                        <span>Kitap Yazarı : {{book.author}}</span>
+                    </li>
+               
+                   
+                    <li class="price  bookItem">
+                        <span class="oldprice">{{book.oldPrice}},00₺ </span> <span class="newprice">
+                            {{book.newPrice}},00₺</span>
+                    </li>
+                    <li class="author  bookItem">
+                        <span>Book Description : {{book.description}}</span>
+                    </li>
+                </div>
+            </ul>
+
+        </div>
+    </div>
+    -->
+    <div class="containerLeft">
+        <div class="user">
+            <div class="userIcon">
+                    <img src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-512.png" alt="">
+            </div>
+        </div>
+        <div class="userInformation">
+            <ul class="userInformationGroup" *ngFor="let user of userInformation">
+                <li class="userInformationItem">  <span class="userTitle"> ID :</span> {{user.id}}</li>
+                <li class="userInformationItem"><span class="userTitle">Username :</span> {{user.username}}</li>
+                <li class="userInformationItem"><span class="userTitle">Rank : </span>{{user.rank}}</li>
+                <li class="userInformationItem"><span class="userTitle">Mission :</span> {{user.mission}}</li>
+            </ul>
+          
+        </div>
+        <div class="copyright">
+            Copyright © 2021 PlaneTravel. This website is made by Sefa ÖĞÜK.
+        </div>
+    </div>
+    <div class="containerRight">
+      
+        <div class="bookGroup">
+            <!-- <div class="bookTitle">
+                <p >BOOK ADD</p>
+            </div> -->
+            <form [formGroup]="exform" action="">
+
+          
+           <ul class="bookAddedGroup" >
+                <li class="bookAddedItem form-group">Book Image :<input type="text"  formControlName="img">
+                    <small *ngIf="!exform.get('img').valid && exform.get('img').touched" class="text">Zorunlu Alan*
+                    </small>
+                </li>
+               <li class="bookAddedItem form-group">Book ID :<input formControlName="id"  type="number">
+                <small *ngIf="!exform.get('id').valid && exform.get('id').touched" class="text">Zorunlu Alan*
+                </small>
+            </li>
+               <li class="bookAddedItem form-group">Book Name :<input formControlName="name"type="text"> <small *ngIf="!exform.get('name').valid && exform.get('name').touched" class="text">Zorunlu Alan*
+            </small></li>
+            <li class="bookAddedItem form-group">Printing Date :<input formControlName="printingDate" placeholder="DD.MM.YYYY" type="date"> <small *ngIf="!exform.get('printingDate').valid && exform.get('printingDate').touched" class="text">Zorunlu Alan*
+            </small></li>
+            <li class="bookAddedItem form-group">Publisher House :<input formControlName="publisherHouse" type="text"> <small *ngIf="!exform.get('publisherHouse').valid && exform.get('publisherHouse').touched" class="text">Zorunlu Alan*
+            </small></li>
+               <li class="bookAddedItem form-group">Book Author :<input formControlName="author" type="text">
+                <small *ngIf="!exform.get('author').valid && exform.get('author').touched" class="text">Zorunlu Alan*
+                </small>
+            </li>
+               <li class="bookAddedItem form-group">Book Old Price :<input formControlName="oldprice" type="number"> <small *ngIf="!exform.get('oldprice').valid && exform.get('oldprice').touched" class="text">Zorunlu Alan*
+            </small></li>
+               <li class="bookAddedItem form-group">Book New Price :<input formControlName="newprice" type="number"> <small *ngIf="!exform.get('newprice').valid && exform.get('newprice').touched" class="text">Zorunlu Alan*
+            </small></li>
+               <li class="bookAddedItem form-group">Book Description :<textarea class="form-group " formControlName="description" type="textarea"></textarea> <small *ngIf="!exform.get('description').valid && exform.get('description').touched" class="text">Zorunlu Alan*
+            </small></li>
+               <li class=" bookAddedItem">
+                   <div class="bookButtons">
+                    <button (keyup.enter)="openDialog()" (click)="openDialog()"  class="btn">Add</button>
+                   </div>
+               </li>
+           </ul>
+        </form>
+        </div>
+    </div>
+</div>
+    
+<div class="footer">
+    <footer>
+        <div class="footerLeft">
+            <p class="footerTitle">PLANETRAVEL</p>
+        </div>
+        
+        <div class="footerLine"></div>
+
+        <div class="footerMiddle">
+            <div class="footerMiddleLeft">
+                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                <path style="fill:#FD003A;" d="M256,0C156.698,0,76,80.7,76,180c0,33.6,9.302,66.301,27.001,94.501l140.797,230.414
+          c2.402,3.9,6.002,6.301,10.203,6.901c5.698,0.899,12.001-1.5,15.3-7.2l141.2-232.516C427.299,244.501,436,212.401,436,180
+          C436,80.7,355.302,0,256,0z M256,270c-50.398,0-90-40.8-90-90c0-49.501,40.499-90,90-90s90,40.499,90,90
+          C346,228.9,306.999,270,256,270z" />
+                <path style="fill:#E50027;" d="M256,0v90c49.501,0,90,40.499,90,90c0,48.9-39.001,90-90,90v241.991
+          c5.119,0.119,10.383-2.335,13.3-7.375L410.5,272.1c16.799-27.599,25.5-59.699,25.5-92.1C436,80.7,355.302,0,256,0z" />
+      
+              </svg>
+              <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px" y="0px" viewBox="0 0 512.076 512.076" style="enable-background:new 0 0 512.076 512.076;"
+                xml:space="preserve">
+                <g transform="translate(-1 -1)">
+                  <g transform="translate(2 2)">
+                    <path style="fill:#558B30;" d="M499.423,430.246l-26.027,43.349c-4.39,7.359-10.476,13.561-17.749,18.091
+                  c-4.15,2.614-8.665,4.598-13.397,5.888c-43.179,11.861-138.496,14.336-291.243-138.496S0.649,111.014,12.511,67.835
+                  c1.29-4.732,3.274-9.247,5.888-13.397c4.53-7.274,10.732-13.359,18.091-17.749l43.349-26.027
+                  c9.899-5.927,22.707-3.035,29.099,6.571l37.632,56.32l31.488,47.275c6.226,9.447,4.187,22.088-4.693,29.099l-10.411,8.107
+                  l-28.416,22.016c-8.363,6.532-10.781,18.151-5.717,27.477c11.435,20.48,22.187,44.629,75.605,98.133s77.653,64.171,98.133,75.605
+                  c9.326,5.063,20.945,2.646,27.477-5.717l22.016-28.416l8.107-10.411c7.011-8.881,19.651-10.919,29.099-4.693l48.725,32.512
+                  l54.869,36.608C502.457,407.538,505.349,420.347,499.423,430.246z" />
+                    <path style="fill:#8BC34A;" d="M482.356,447.312l-26.027,43.349c-0.256,0.341-0.427,0.683-0.683,1.024
+                  c-4.15,2.614-8.665,4.598-13.397,5.888c-43.179,11.861-138.496,14.336-291.243-138.496S0.649,111.014,12.511,67.835
+                  c1.29-4.732,3.274-9.247,5.888-13.397c0.341-0.256,0.683-0.427,1.024-0.683l43.349-26.027c9.899-5.927,22.707-3.035,29.099,6.571
+                  l37.632,56.32l31.488,47.275c6.15,9.464,4.12,22.049-4.693,29.099l-28.587,22.187l-10.24,7.936
+                  c-8.382,6.52-10.803,18.155-5.717,27.477c11.435,20.48,22.187,44.629,75.605,98.133s77.653,64.171,98.133,75.605
+                  c9.323,5.086,20.957,2.665,27.477-5.717l7.936-10.24l22.187-28.587c7.05-8.814,19.635-10.843,29.099-4.693l48.725,32.512
+                  l54.869,36.608C485.391,424.605,488.283,437.414,482.356,447.312z" />
+                  </g>
+                  <g>
+                    <path d="M406.413,513.056c13.543,0.058,27.033-1.704,40.107-5.239c15.212-4.264,28.18-14.256,36.181-27.878l26.061-43.315
+                  c8.301-13.791,4.282-31.672-9.122-40.585l-103.646-69.12c-13.153-8.701-30.785-5.838-40.508,6.579l-30.191,38.818
+                  c-3.881,5.116-10.933,6.6-16.546,3.482l-5.743-3.166c-19.038-10.377-42.726-23.296-90.453-71.04
+                  c-47.727-47.744-60.672-71.45-71.049-90.453l-3.149-5.743c-3.161-5.612-1.705-12.695,3.413-16.606l38.793-30.182
+                  c12.412-9.725,15.279-27.351,6.588-40.508l-69.12-103.646C109.12,1.056,91.25-2.966,77.461,5.323L34.12,31.358
+                  C20.502,39.364,10.511,52.33,6.242,67.539c-15.607,56.866-3.866,155.008,140.706,299.597
+                  C261.952,482.131,347.567,513.056,406.413,513.056z M22.703,72.054c3.116-10.968,10.354-20.307,20.198-26.061l43.341-26.001
+                  c5.983-3.6,13.739-1.855,17.604,3.959l37.547,56.371l31.514,47.266c3.774,5.707,2.534,13.356-2.85,17.579l-38.801,30.182
+                  c-11.808,9.029-15.18,25.366-7.91,38.332l3.081,5.598c10.906,20.002,24.465,44.885,73.967,94.379s74.377,63.053,94.37,73.958
+                  l5.606,3.089c12.966,7.269,29.303,3.898,38.332-7.91l30.182-38.801c4.224-5.381,11.87-6.62,17.579-2.85l103.637,69.12
+                  c5.819,3.863,7.564,11.622,3.959,17.604l-26.001,43.341c-5.746,9.832-15.072,17.061-26.027,20.173
+                  c-52.497,14.413-144.213,2.475-283.008-136.32S8.29,124.559,22.703,72.054z" />
+                    <path d="M291.161,86.39c80.081,0.089,144.977,64.986,145.067,145.067c0,4.713,3.821,8.533,8.533,8.533
+                  c4.713,0,8.533-3.821,8.533-8.533c-0.099-89.503-72.631-162.035-162.133-162.133c-4.713,0-8.533,3.82-8.533,8.533
+                  C282.628,82.569,286.448,86.39,291.161,86.39z" />
+                    <path d="M291.161,137.59c51.816,0.061,93.806,42.051,93.867,93.867c0,4.713,3.82,8.533,8.533,8.533s8.533-3.821,8.533-8.533
+                  c-0.071-61.238-49.696-110.863-110.933-110.933c-4.713,0-8.533,3.821-8.533,8.533C282.628,133.769,286.448,137.59,291.161,137.59z
+                  " />
+                    <path d="M291.161,188.79c23.552,0.028,42.638,19.114,42.667,42.667c0,4.713,3.82,8.533,8.533,8.533s8.533-3.821,8.533-8.533
+                  c-0.038-32.974-26.759-59.696-59.733-59.733c-4.713,0-8.533,3.821-8.533,8.533S286.448,188.79,291.161,188.79z" />
+                  </g>
+                </g>
+              </svg><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512.021 512.021"
+                style="enable-background:new 0 0 512.021 512.021;" xml:space="preserve">
+                <path style="fill:#64B5F6;" d="M338.214,344.556l-64-64.107c-4.16-4.171-10.914-4.179-15.085-0.019
+             c-2.006,2.001-3.133,4.717-3.134,7.55v149.44c0.003,4.589,2.942,8.662,7.296,10.112c1.086,0.367,2.224,0.555,3.371,0.555
+             c3.357,0,6.519-1.581,8.533-4.267l64-85.333C342.376,354.244,341.958,348.31,338.214,344.556z" />
+                <path style="fill:#1976D2;" d="M291.366,320.641l-64-21.333c-5.587-1.868-11.631,1.147-13.499,6.734
+             c-0.732,2.19-0.734,4.558-0.005,6.749l42.667,128c1.453,4.362,5.536,7.302,10.133,7.296h0.661c4.819-0.3,8.836-3.8,9.792-8.533
+             l21.333-106.667C299.523,327.601,296.483,322.345,291.366,320.641z" />
+                <path style="fill:#2196F3;" d="M507.43,23.446c-3.399-2.377-7.867-2.568-11.456-0.491L90.641,257.622
+             c-5.096,2.955-6.832,9.482-3.877,14.578c1.306,2.253,3.391,3.95,5.861,4.771l191.573,63.872l148.907,63.829
+             c5.417,2.316,11.685-0.197,14.001-5.614c0.321-0.752,0.555-1.538,0.697-2.343l64-362.667
+             C512.531,29.965,510.825,25.829,507.43,23.446z" />
+                <g>
+                  <path style="fill:#1976D2;" d="M510.011,38.38c3.441-4.781,2.355-11.447-2.426-14.889c-4.259-3.065-10.115-2.578-13.808,1.15
+               L215.611,318.017l80.277,27.733L510.011,38.38z" />
+                  <path style="fill:#1976D2;" d="M26.065,420.246c-2.679,0.003-5.26-1.003-7.232-2.816c-5.319-4.892-10.553-9.92-15.701-15.083
+               c-4.171-4.165-4.176-10.922-0.011-15.093c4.165-4.171,10.922-4.176,15.093-0.011c4.949,4.949,9.984,9.792,15.083,14.485
+               c4.336,3.988,4.618,10.736,0.63,15.072C31.904,418.999,29.052,420.249,26.065,420.246z" />
+                  <path style="fill:#1976D2;" d="M171.387,490.54c-10.278-0.033-20.527-1.098-30.592-3.179c-5.814-0.95-9.757-6.434-8.806-12.248
+               c0.95-5.814,6.434-9.757,12.248-8.806c0.277,0.045,0.553,0.102,0.825,0.169c8.683,1.792,17.524,2.707,26.389,2.731h0.064h4.8
+               c5.559-0.531,10.497,3.545,11.028,9.104c0.037,0.385,0.051,0.771,0.044,1.157c0.216,5.884-4.377,10.831-10.261,11.051h-5.568
+               L171.387,490.54z M94.95,470.124c-1.708,0-3.39-0.409-4.907-1.195c-10.486-5.487-20.611-11.636-30.315-18.411
+               c-4.727-3.515-5.709-10.197-2.194-14.925c3.355-4.511,9.634-5.644,14.354-2.59c8.937,6.286,18.272,11.987,27.947,17.067
+               c5.231,2.709,7.276,9.146,4.567,14.377c-1.833,3.54-5.487,5.762-9.474,5.762L94.95,470.124z" />
+                  <path style="fill:#1976D2;" d="M226.235,479.105c-5.891,0.048-10.705-4.688-10.753-10.579c-0.035-4.307,2.524-8.213,6.487-9.901
+               c6.141-2.627,12.105-5.648,17.856-9.045c5.146-2.867,11.642-1.019,14.509,4.127c2.767,4.967,1.152,11.231-3.672,14.241
+               c-6.542,3.867-13.325,7.309-20.309,10.304C229.05,478.806,227.651,479.097,226.235,479.105z" />
+                </g>
+              </svg>
+           
+            </div>
+        
+            <div class="footerMiddleRight"> 
+                <p>Yıldız Teknik Teknopark</p>
+                <p>+90 (537) 745 68 53</p>
+                <p>planetravelseller@gmail.com</p>
+            </div>
+          
+        </div>
+
+        <div class="footerLine"></div>
+
+        <div class="footerRight">
+            <p>ABOUT</p>
+      <p class="about">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus ex officiis dolor ullam nisi voluptates repellendus corporis veritatis dolorum, veniam adipisci dolores magni ipsa, esse assumenda. Quia, aspernatur id modi asperiores error dolorem ut consequatur, iure fugiat eligendi eum autem maxime explicabo sit ex. Fuga temporibus ad dolores? Repellendus, dolorum?</p>
+        </div>
+      
+    </footer>
+    Copyright © 2020 PlaneTravel. This website is made by Sefa ÖĞÜK.
+</div>
